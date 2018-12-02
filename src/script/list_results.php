@@ -28,7 +28,7 @@ $results = $resultsRepository->findAll();
 
 if ($argc === 1) {
     echo PHP_EOL
-        . sprintf('%3s - %3s - %22s - %s', 'Id', 'res', 'username', 'time')
+        . sprintf('%3s - %3s - %22s - %s', 'Id', 'Res', 'Username', 'Time')
         . PHP_EOL;
     $items = 0;
     /* @var Result $result */
@@ -36,7 +36,7 @@ if ($argc === 1) {
         echo $result . PHP_EOL;
         $items++;
     }
-    echo PHP_EOL . "Total: $items results.";
+    echo PHP_EOL . "Total: $items results.".PHP_EOL;
 } elseif (in_array('--json', $argv, true)) {
     echo json_encode($results, JSON_PRETTY_PRINT);
 }

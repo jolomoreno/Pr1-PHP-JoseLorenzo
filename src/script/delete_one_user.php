@@ -1,13 +1,14 @@
 <?php
 /**
  * PHP version 7.2
- * src/list_users.php
+ * src/delete_one_user.php
  *
  * @category Scripts
- * @author   Javier Gil <franciscojavier.gil@upm.es>
+ * @author   Jose Lorenzo Moreno <jolorenzom@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://www.etsisi.upm.es ETS de Ingeniería de Sistemas Informáticos
  */
+
 
 use MiW\Results\Entity\User;
 use MiW\Results\Utils;
@@ -28,6 +29,7 @@ if ($argc !== 2) {
     echo <<< MARCA_FIN
 
     Usage: $fich <UserId>
+    
 
 MARCA_FIN;
     exit(0);

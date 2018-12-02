@@ -30,6 +30,7 @@ if ($argc < 3 || $argc > 4) {
     echo <<< MARCA_FIN
 
     Usage: $fich <Result> <UserId> [<Timestamp>]
+    
 
 MARCA_FIN;
     exit(0);

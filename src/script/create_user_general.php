@@ -1,14 +1,14 @@
 <?php
 /**
  * PHP version 7.2
- * src\create_user_admin.php
+ * src\create_user_general.php
  *
- * @category Utils
- * @package  MiW\Results
- * @author   Javier Gil <franciscojavier.gil@upm.es>
+ * @category Scripts
+ * @author   Jose Lorenzo Moreno <jolorenzom@gmail.com>
  * @license  https://opensource.org/licenses/MIT MIT License
  * @link     http://www.etsisi.upm.es ETS de Ingeniería de Sistemas Informáticos
  */
+
 
 use MiW\Results\Entity\User;
 use MiW\Results\Utils;
