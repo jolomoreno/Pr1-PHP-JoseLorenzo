@@ -34,13 +34,6 @@ MARCA_FIN;
     exit(0);
 }
 
-echo "ARG_C: ".$argc;
-
-echo " ARG_0: ".$argv[0];
-echo " ARG_1: ".$argv[1];
-echo " ARG_2: ".$argv[2];
-echo " ARG_3: ".$argv[3]." ";
-
 $newUsername = $argv[1];
 $newUserEmail = $argv[2];
 $newUserPassword = $argv[3];
