@@ -30,6 +30,7 @@ if ($argc !== 4) {
 
     Usage: $fich <Username> <Email> <Password>
 
+
 MARCA_FIN;
     exit(0);
 }
@@ -42,7 +43,7 @@ $user = new User();
 $user->setUsername($newUsername);
 $user->setEmail($newUserEmail);
 $user->setPassword($newUserPassword);
-$user->setEnabled(true);
+$user->setEnabled(false);
 $user->setIsAdmin(false);
 
 try {
