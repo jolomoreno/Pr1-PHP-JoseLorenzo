@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2
- * src/list__one_result.php
+ * src/list_one_user.php
  *
  * @category Scripts
  * @author   Jose Lorenzo Moreno <jolorenzom@gmail.com>
@@ -9,7 +9,7 @@
  * @link     http://www.etsisi.upm.es ETS de Ingeniería de Sistemas Informáticos
  */
 
-use MiW\Results\Entity\Result;
+
 use MiW\Results\Entity\User;
 use MiW\Results\Utils;
 
@@ -24,30 +24,24 @@ $dotenv->load();
 
 $entityManager = Utils::getEntityManager();
 
-if ($argc < 2 || $argc > 4) {
+if ($argc < 2 || $argc > 6) {
     $fich = basename(__FILE__);
     echo <<< MARCA_FIN
 
-    Usage: $fich <ResultId> [<UserId>] [<Result>] 
-
+    Usage: $fich <UserId> [<Username>] [<Email>] [<Password>] [<IsEnabled>]
+    
 
 MARCA_FIN;
     exit(0);
 }
 
-$resultId = (int) $argv[1];
-$userId = (int) $argv[2];
-$resultPts = (int) $argv[3];
+$userId = (int) $argv[1];
+$username = (string) $argv[2];
+$email = (string) $argv[3];
+$password = (string) $argv[4];
+$enabled = (string) $argv[5];
 
-$resultRepository = $entityManager->getRepository(Result::class);
-$result = $entityManager
-    ->getRepository(Result::class)
-    ->findOneBy(['id' => $resultId]);
-
-if (null === $result) {
-    echo "Resultado $resultId no encontrado" . PHP_EOL;
-    exit(0);
-}
+echo "userId: ".$userId.PHP_EOL;
 
 $userRepository = $entityManager->getRepository(User::class);
 $user = $entityManager
@@ -55,23 +49,35 @@ $user = $entityManager
     ->findOneBy(['id' => $userId]);
 
 if (null === $user) {
-    echo "Usuario $userId no encontrado" . PHP_EOL;
+    echo PHP_EOL."Usuario $userId no encontrado".PHP_EOL.PHP_EOL;
     exit(0);
 }
 
-if ($userId > 0){
-    $result->setUser($user);
+if ($username !== ''){
+    $user->setUsername($username);
 }
 
-if ($resultPts > 0){
-    $result->setResult($resultPts);
+if ($email !== ''){
+    $user->setEmail($email);
+}
+
+if ($password !== ''){
+    $user->setPassword($password);
+}
+
+if ($enabled === 'true' || $enabled === 'false'){
+    $enabled = ($enabled === 'true') ? true : false;
+    $user->setEnabled($enabled);
+}
+
+if ($enabled === 'false'){
+    $user->setEnabled($enabled);
 }
 
 try {
-    $entityManager->persist($result);
+    $entityManager->persist($user);
     $entityManager->flush();
-    echo 'Updated Result with ID ' . $result->getId()
-        . ' USER: ' . $result->getUser() . ' RESULT: ' . $result->getResult() . PHP_EOL;
+    echo 'Created User with ID #' . $user->getId() . PHP_EOL;
 } catch (Exception $exception) {
-    echo $exception->getMessage();
-    }
+    echo $exception->getMessage() . PHP_EOL;
+}
