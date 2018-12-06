@@ -26,17 +26,24 @@ $entityManager = Utils::getEntityManager();
 $resultsRepository = $entityManager->getRepository(Result::class);
 $results = $resultsRepository->findAll();
 
-if ($argc === 1) {
-    echo PHP_EOL
-        . sprintf('%3s - %3s - %22s - %s', 'Id', 'Res', 'Username', 'Time')
-        . PHP_EOL;
+if (in_array('--json', $argv, true)) {
+    echo json_encode($results, JSON_PRETTY_PRINT). PHP_EOL;
+} else {
     $items = 0;
-    /* @var Result $result */
+    echo PHP_EOL . sprintf(
+            '%4s %3s %22s' . PHP_EOL,
+            'Id', 'Res', 'Username'
+        );
+    /** @var User $user */
     foreach ($results as $result) {
-        echo $result . PHP_EOL;
+        echo sprintf(
+            '-%3s %3s %22s',
+            $result->getId(),
+            $result->getResult(),
+            $result->getUser()
+        ),
+        PHP_EOL;
         $items++;
     }
-    echo PHP_EOL . "Total: $items results.".PHP_EOL;
-} elseif (in_array('--json', $argv, true)) {
-    echo json_encode($results, JSON_PRETTY_PRINT);
+    echo "\nTotal: $items results.\n\n";
 }
