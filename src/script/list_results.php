@@ -34,7 +34,7 @@ if (in_array('--json', $argv, true)) {
             '%4s %3s %22s' . PHP_EOL,
             'Id', 'Res', 'Username'
         );
-    /** @var User $user */
+    /** @var Result $result */
     foreach ($results as $result) {
         echo sprintf(
             '-%3s %3s %22s',
