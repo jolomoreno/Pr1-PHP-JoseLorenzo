@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2
- * src/list_one_user.php
+ * src/update_user.php
  *
  * @category Scripts
  * @author   Jose Lorenzo Moreno <jolorenzom@gmail.com>
@@ -13,35 +13,22 @@
 use MiW\Results\Entity\User;
 use MiW\Results\Utils;
 
-require __DIR__ . '/../../vendor/autoload.php';
+require __DIR__ . '/../../../vendor/autoload.php';
 
 // Carga las variables de entorno
 $dotenv = new \Dotenv\Dotenv(
-    __DIR__ . '/../..',
-    Utils::getEnvFileName(__DIR__ . '/../..')
+    __DIR__ . '/../../..',
+    Utils::getEnvFileName(__DIR__ . '/../../..')
 );
 $dotenv->load();
 
 $entityManager = Utils::getEntityManager();
 
-if ($argc < 2 || $argc > 6) {
-    $fich = basename(__FILE__);
-    echo <<< MARCA_FIN
-
-    Usage: $fich <UserId> [<Username>] [<Email>] [<Password>] [<IsEnabled>]
-    
-
-MARCA_FIN;
-    exit(0);
-}
-
-$userId = (int) $argv[1];
-$username = (string) $argv[2];
-$email = (string) $argv[3];
-$password = (string) $argv[4];
-$enabled = (string) $argv[5];
-
-echo "userId: ".$userId.PHP_EOL;
+$userId = (int) $_POST['id'];
+$username = (string) $_POST['username'];
+$email = (string) $_POST['email'];
+$password = (string) $_POST['password'];
+$enabled = (string) $_POST['enabled'];
 
 $userRepository = $entityManager->getRepository(User::class);
 $user = $entityManager
@@ -49,8 +36,8 @@ $user = $entityManager
     ->findOneBy(['id' => $userId]);
 
 if (null === $user) {
-    echo PHP_EOL."Usuario $userId no encontrado".PHP_EOL.PHP_EOL;
-    exit(0);
+    echo PHP_EOL."Usuario $userId no encontrado!!!".PHP_EOL.PHP_EOL;
+    //exit(0);
 }
 
 if ($username !== ''){
@@ -65,19 +52,15 @@ if ($password !== ''){
     $user->setPassword($password);
 }
 
-if ($enabled === 'true' || $enabled === 'false'){
-    $enabled = ($enabled === 'true') ? true : false;
-    $user->setEnabled($enabled);
-}
-
-if ($enabled === 'false'){
+if ($enabled === '1' || $enabled === '0'){
+    $enabled = ($enabled === '1') ? true : false;
     $user->setEnabled($enabled);
 }
 
 try {
     $entityManager->persist($user);
     $entityManager->flush();
-    echo 'Updated User with ID #' . $user->getId() . PHP_EOL;
+    header('Location: ../public/users.php');
 } catch (Exception $exception) {
     echo $exception->getMessage() . PHP_EOL;
 }

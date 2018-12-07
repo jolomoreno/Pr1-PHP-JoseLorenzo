@@ -6,7 +6,7 @@
             <hr>
             <div class="buttons">
                 <a id="btnRegistro" class="btn btn-primary btn-mdms" href="create_users.php">Alta usuario</a>
-                <a id="btnDelete" class="btn btn-danger btn-md" href="index.php" onclick="return confirm('¿Realmente deseas eliminar TODOS los registros?');">Eliminar usuarios</a>
+                <a id="btnDelete" class="btn btn-danger btn-md" href="../users/delete_users.php" onclick="return confirm('¿Realmente deseas eliminar TODOS los registros?');">Eliminar usuarios</a>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -29,11 +29,14 @@
                                 <th> <?php echo $user->getId() ?></th>
                                 <th> <?php echo $user->getUsername() ?></th>
                                 <th> <?php echo $user->getEmail() ?></th>
-                                <th> <?php echo ($user->isEnabled()) ? 'Yes' : 'No' ?></th>
-                                <th> <?php echo ($user->isAdmin()) ? 'Yes' : 'No' ?></th>
-                                <th scope="col"><a href="#"><span class="glyphicon glyphicon-search"></span></a></th>
-                                <th scope="col"><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></th>
-                                <th scope="col"><a href="#"><span class="glyphicon glyphicon-trash"></span></a></th>
+                                <th> <?php echo ($user->isEnabled()) ? 'Si' : 'No' ?></th>
+                                <th> <?php echo ($user->isAdmin()) ? 'Si' : 'No' ?></th>
+                                <th><a href="user.php<?php echo '?id='.$user->getId() ?>&op=read"><span class="glyphicon glyphicon-search"></span></a></th>
+                                <th><a href="user.php<?php echo '?id='.$user->getId() ?>&op=update"><span class="glyphicon glyphicon-pencil"></span></a></th>
+                                <th><a href="../users/delete_one_user.php<?php echo '?id='.$user->getId() ?>"
+                                       onclick="return confirm('¿Realmente deseas eliminar el registro?');">
+                                            <span class="glyphicon glyphicon-trash"></span></a>
+                                </th>
                             </tr>
                             <?php  } ?>
                         </tbody>

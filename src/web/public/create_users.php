@@ -1,5 +1,4 @@
 <?php require './templates/head.php' ?>
-<?php //require '../users/list_users.php' ?>
     <section id="create_usuarios" class="">
         <div class="container">
             <h1 class="cover-heading">Crear usuarios</h1>
@@ -10,11 +9,23 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="username">Usuario</label>
-                                <input id="username" class="form-control inputMio"name="username" type="text" placeholder="NombreUsuario" required></input>
+                                <input
+                                        id="username"
+                                        class="form-control inputMio"
+                                        name="username"
+                                        type="text"
+                                        placeholder="NombreUsuario"
+                                        required>
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email</label>
-                                <input id="email" class="form-control inputMio" name="email" type="email" placeholder="email@dominio.com" required></input>
+                                <input
+                                        id="email"
+                                        class="form-control inputMio"
+                                        name="email"
+                                        type="email"
+                                        placeholder="email@dominio.com"
+                                        required>
                             </div>
                         </div>
                         <div class="row">
@@ -24,11 +35,17 @@
                                     <option value="1" >Si</option>
                                     <option value="0" selected>No</option>
                                 </select>
-                                <button id="btnRegistroForm" type="submit" class="btn btn-primary btn-md" href="index.php">Enviar</button>
+                                <button id="btnRegistroForm" type="submit" class="btn btn-primary btn-md">Enviar</button>
                             </div>
                             <div class="col-md-6">
                                 <label for="password">Contraseña</label>
-                                <input id="password" class="form-control inputMio" name="password" type="password" placeholder="Tu contraseña" required></input>
+                                <input
+                                        id="password"
+                                        class="form-control inputMio"
+                                        name="password"
+                                        type="password"
+                                        placeholder="Tu contraseña"
+                                        required>
                             </div>
                         </div>
                     </form>
