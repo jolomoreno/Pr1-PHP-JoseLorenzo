@@ -157,8 +157,11 @@ body {
 }
 
 
-#btnLogin, #btnRegistro {
-  margin-top: 20px;
+#btnDelete, #btnRegistro, .inputMio {
+  margin-bottom: 20px;
+}
+.buttons {
+  text-align: left;
 }
 
 /*

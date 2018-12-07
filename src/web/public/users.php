@@ -4,6 +4,10 @@
         <div class="container">
             <h1 class="cover-heading">Usuarios</h1>
             <hr>
+            <div class="buttons">
+                <a id="btnRegistro" class="btn btn-primary btn-mdms" href="create_users.php">Alta usuario</a>
+                <a id="btnDelete" class="btn btn-danger btn-md" href="index.php" onclick="return confirm('¿Realmente deseas eliminar TODOS los registros?');">Eliminar usuarios</a>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <table class="table table-responsive">
