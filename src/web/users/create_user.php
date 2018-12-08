@@ -9,7 +9,6 @@
  * @link     http://www.etsisi.upm.es ETS de Ingeniería de Sistemas Informáticos
  */
 
-
 use MiW\Results\Entity\User;
 use MiW\Results\Utils;
 
