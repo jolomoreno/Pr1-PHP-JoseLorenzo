@@ -16,7 +16,7 @@
 * PhpStorm
 * GitHub
 
-## Tareas
+## Objetivo
 * El objetivo de la primera práctica es progresar en el conocimiento del lenguaje de scripting PHP y el ORM Doctrine 
 y familiarizarse con el desarrollo de aplicaciones web completas integrando tecnologías del lado del cliente con el 
 procesamiento en el lado del servidor. 
@@ -27,6 +27,8 @@ En la misma se profundizará en el conocimiento del lenguaje de scripting PHP, s
 emplearán datos almacenados en un gestor de bases de datos y adicionalmente, se
 utilizarán componentes desarrollados por terceros que permitirán simplificar las
 labores a desarrollar. 
+
+## Tareas
 ### 1 - CRUD vía CLI
 #### Usuarios
 * CREATE: 
