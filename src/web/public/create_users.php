@@ -1,3 +1,4 @@
+<?php $page='users'; ?>
 <?php require './templates/head.php' ?>
     <section id="create_usuarios" class="">
         <div class="container">

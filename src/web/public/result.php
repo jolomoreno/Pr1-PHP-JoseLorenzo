@@ -1,3 +1,4 @@
+<?php $page='results'; ?>
 <?php require './templates/head.php' ?>
 <?php require '../users/list_users.php' ?>
 <?php require '../results/list_one_result.php' ?>

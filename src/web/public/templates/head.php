@@ -34,10 +34,11 @@
             </div>
             <nav>
                 <ul class="nav masthead-nav">
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    <li id="users-li"><a href="users.php" id="users-link"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
-                    <li id="results-li"><a href="results.php" id="results-link"><span class="glyphicon glyphicon-list-alt"></span> Resultados</a></li>
+                    <li class="<?php if ($page==='index') echo 'active'?>"><a href="index.php">Inicio</a></li>
+                    <li class="<?php if ($page==='users') echo 'active'?>" id="users-li"><a href="users.php" id="users-link"><span class="glyphicon glyphicon-user"></span> Usuarios</a></li>
+                    <li class="<?php if ($page==='results') echo 'active'?>" id="results-li"><a href="results.php" id="results-link"><span class="glyphicon glyphicon-list-alt"></span> Resultados</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+

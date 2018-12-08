@@ -1,3 +1,4 @@
+<?php $page='results'; ?>
 <?php require './templates/head.php' ?>
 <?php require '../users/list_users.php' ?>
     <section id="create_resultados" class="">
