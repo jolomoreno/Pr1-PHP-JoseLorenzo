@@ -1,66 +1,46 @@
 <?php require './templates/head.php' ?>
-    <section id="resultados" class="">
-        <div class="container">
-            <h1 class="cover-heading">Resultados</h1>
-            <hr>
-            <div class="row">
-                <div class="col-md-6">
-                    <table class="table table-responsive">
-                        <thead>
+<?php require '../results/list_results.php' ?>
+<section id="usuarios" class="">
+    <div class="container">
+        <h1 class="cover-heading">Resultados</h1>
+        <hr>
+        <div class="buttons">
+            <a id="btnRegistro" class="btn btn-primary btn-mdms" href="create_results.php">Alta resultado</a>
+            <a id="btnDelete" class="btn btn-danger btn-md" href="../results/delete_results.php" onclick="return confirm('¿Realmente deseas eliminar TODOS los registros?');">Eliminar resultados</a>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table table-responsive">
+                    <thead>
+                    <tr>
+                        <th scope="row">Id</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Result</th>
+                        <th scope="col">Date</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($results as $result) {?>
                         <tr>
-                            <th class="text-center" colspan="3">Alquiler pista</th>
+                            <th> <?php echo $result->getId() ?></th>
+                            <th> <?php echo $result->getUser() ?></th>
+                            <th> <?php echo $result->getResult() ?></th>
+                            <th> <?php echo $result->getTime() ?></th>
+                            <th><a href="result.php<?php echo '?id='.$result->getId() ?>&op=read"><span class="glyphicon glyphicon-search"></span></a></th>
+                            <th><a href="result.php<?php echo '?id='.$result->getId() ?>&op=update"><span class="glyphicon glyphicon-pencil"></span></a></th>
+                            <th><a href="../results/delete_one_result.php<?php echo '?id='.$result->getId() ?>"
+                                   onclick="return confirm('¿Realmente deseas eliminar el registro?');">
+                                    <span class="glyphicon glyphicon-trash"></span></a>
+                            </th>
                         </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <th scope="col">Abonados</th>
-                            <th scope="col">No abonados</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">1 hora</th>
-                            <th scope="col">2€</th>
-                            <th scope="col">3€</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">1:30 horas</th>
-                            <th scope="col">3€</th>
-                            <th scope="col">4€</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">2 horas</th>
-                            <th scope="col">4€</th>
-                            <th scope="col">5€</th>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-responsive">
-                        <thead>
-                        <tr>
-                            <th class="text-center" colspan="3">Abonos</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">Mensual</th>
-                            <th scope="col">Trimestral</th>
-                            <th scope="col">Anual</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">25€</th>
-                            <th scope="col">60€</th>
-                            <th scope="col">200€</th>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-6">
-                    <p class="lead text-justify">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae dolores eligendi illum in incidunt nisi nulla numquam, provident totam voluptatem?
-                        Consequuntur cum ex illo mollitia nihil optio reprehenderit. Consequatur, fugit.</p>
-                    <p class="lead text-justify">Ab aut eos eum incidunt ipsa iure, nulla quam, quis recusandae reiciendis sint sit tempore voluptates. Ab alias deleniti dolorem inventore laborum molestias nobis odio,
-                        quibusdam repellat sapiente totam voluptates.</p>
-                </div>
+                    <?php  } ?>
+                    </tbody>
+                </table>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 <?php require './templates/tail.php' ?>

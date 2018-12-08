@@ -148,6 +148,14 @@ class Result implements \JsonSerializable
     }
 
     /**
+     * @return string
+     */
+    public function getTime(): string
+    {
+        return $this->time->format('Y-m-d H:i:s');
+    }
+
+    /**
      * Implements __toString()
      *
      * @return string

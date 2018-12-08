@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2
- * src\create_user.php
+ * src/delete_one_result.php
  *
  * @category Scripts
  * @author   Jose Lorenzo Moreno <jolorenzom@gmail.com>
@@ -10,7 +10,7 @@
  */
 
 
-use MiW\Results\Entity\User;
+use MiW\Results\Entity\Result;
 use MiW\Results\Utils;
 
 require __DIR__ . '/../../../vendor/autoload.php';
@@ -24,22 +24,18 @@ $dotenv->load();
 
 $entityManager = Utils::getEntityManager();
 
-$newUsername = $_POST['username'];
-$newUserEmail = $_POST['email'];
-$newUserPassword = $_POST['password'];
-$newUserEnabled = ($_POST['enabled']==='1') ? true: false;
+$resultId = (int) $_GET['id'];
 
-$user = new User();
-$user->setUsername($newUsername);
-$user->setEmail($newUserEmail);
-$user->setPassword($newUserPassword);
-$user->setEnabled($newUserEnabled);
-$user->setIsAdmin(false);
+$userRepository = $entityManager->getRepository(Result::class);
+$result = $entityManager
+    ->getRepository(Result::class)
+    ->findOneBy(['id' => $resultId]);
 
-try {
-    $entityManager->persist($user);
+if (null === $result) {
+    echo "Resultado $resultId no encontrado" . PHP_EOL;
+} else {
+    $entityManager->remove($result);
     $entityManager->flush();
-    header('Location: ../public/users.php');
-} catch (Exception $exception) {
-    echo $exception->getMessage() . PHP_EOL;
+    header('Location: ../public/results.php');
 }
+
