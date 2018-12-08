@@ -1,7 +1,7 @@
 <?php
 /**
  * PHP version 7.2
- * src/list_one_user.php
+ * src/list__one_result.php
  *
  * @category Scripts
  * @author   Jose Lorenzo Moreno <jolorenzom@gmail.com>
@@ -9,7 +9,7 @@
  * @link     http://www.etsisi.upm.es ETS de Ingeniería de Sistemas Informáticos
  */
 
-use MiW\Results\Entity\User;
+use MiW\Results\Entity\Result;
 use MiW\Results\Utils;
 
 require __DIR__ . '/../../../vendor/autoload.php';
@@ -24,15 +24,13 @@ $dotenv->load();
 $entityManager = Utils::getEntityManager();
 
 $op = ($_GET['op']==='read') ? 'readonly' : '';
-$userId = (int) $_GET['id'];
+$resultId = (int) $_GET['id'];
 
-$userRepository = $entityManager->getRepository(User::class);
-$user = $entityManager
-    ->getRepository(User::class)
-    ->findOneBy(['id' => $userId]);
+$resultRepository = $entityManager->getRepository(Result::class);
+$result = $entityManager
+    ->getRepository(Result::class)
+    ->findOneBy(['id' => $resultId]);
 
-if (null === $user) {
-    echo "Usuario $userId no encontrado". PHP_EOL;
+if (null === $result) {
+    echo "Resultado $resultId no encontrado" . PHP_EOL;
 }
-
-

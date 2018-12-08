@@ -156,6 +156,16 @@ class Result implements \JsonSerializable
     }
 
     /**
+     * @param \DateTime $time
+     * @return Result
+     */
+    public function setTime(\DateTime $time): Result
+    {
+        $this->time = $time;
+        return $this;
+    }
+
+    /**
      * Implements __toString()
      *
      * @return string

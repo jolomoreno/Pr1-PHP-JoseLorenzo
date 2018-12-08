@@ -9,7 +9,6 @@
  * @link     http://www.etsisi.upm.es ETS de Ingeniería de Sistemas Informáticos
  */
 
-
 use MiW\Results\Entity\User;
 use MiW\Results\Utils;
 
@@ -36,8 +35,7 @@ $user = $entityManager
     ->findOneBy(['id' => $userId]);
 
 if (null === $user) {
-    echo PHP_EOL."Usuario $userId no encontrado!!!".PHP_EOL.PHP_EOL;
-    //exit(0);
+    echo PHP_EOL."Usuario $userId no encontrado".PHP_EOL.PHP_EOL;
 }
 
 if ($username !== ''){

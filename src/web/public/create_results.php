@@ -14,7 +14,8 @@
                                         id="result"
                                         class="form-control inputMio"
                                         name="result"
-                                        type="text"
+                                        type="number"
+                                        min="1"
                                         placeholder="NuevoResultado"
                                         required>
                                 <button id="btnRegistroForm" type="submit" class="btn btn-primary btn-md">Enviar</button>
