@@ -29,7 +29,7 @@ if ($argc < 3 || $argc > 4) {
     $fich = basename(__FILE__);
     echo <<< MARCA_FIN
 
-    Usage: $fich <Result> <UserId> [<Timestamp>]
+    Usage: $fich <Result> <UserId>
     
 
 MARCA_FIN;
@@ -38,7 +38,7 @@ MARCA_FIN;
 
 $newResult    = (int) $argv[1];
 $userId       = (int) $argv[2];
-$newTimestamp = $argv[3] ?? new DateTime('now');
+$newTimestamp = new DateTime('now');
 
 /** @var User $user */
 $user = $entityManager

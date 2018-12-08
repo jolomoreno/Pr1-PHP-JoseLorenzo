@@ -24,11 +24,11 @@ $dotenv->load();
 
 $entityManager = Utils::getEntityManager();
 
-if ($argc < 2 || $argc > 4) {
+if ($argc !== 4) {
     $fich = basename(__FILE__);
     echo <<< MARCA_FIN
 
-    Usage: $fich <ResultId> [<UserId>] [<Result>] 
+    Usage: $fich <ResultId> <UserId> <Result>
 
 
 MARCA_FIN;
