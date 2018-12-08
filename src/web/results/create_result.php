@@ -43,5 +43,5 @@ try {
     $entityManager->flush();
     header('Location: ../public/results.php');
 } catch (Exception $exception) {
-    echo $exception->getMessage();
+    header('Location: ../public/results.php');
 }

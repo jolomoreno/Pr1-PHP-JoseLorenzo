@@ -60,5 +60,5 @@ try {
     $entityManager->flush();
     header('Location: ../public/users.php');
 } catch (Exception $exception) {
-    echo $exception->getMessage() . PHP_EOL;
+    header('Location: ../public/users.php');
 }
