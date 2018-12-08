@@ -55,7 +55,7 @@
                                        type="password"
                                        placeholder="*********"
                                        <?php echo $op ?>
-                                       required>
+                                       >
                             </div>
                         </div>
                     </form>
