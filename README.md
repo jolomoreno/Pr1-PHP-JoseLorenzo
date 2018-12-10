@@ -1,7 +1,7 @@
 # Pr1.PHP.JoseLorenzo
 
 # Asignatura: Back-end con Tecnologías de Libre Distribución (PHP)
-> Repositorio para la primera práctica de la asignatura Front-end para Navegadores Web.
+> Repositorio para la primera práctica de la asignatura Back-end con Tecnologías de Libre Distribución.
 > #### [Máster en Ingeniería Web por la U.P.M.](http://miw.etsisi.upm.es)
 
 ## Tecnologías necesarias
